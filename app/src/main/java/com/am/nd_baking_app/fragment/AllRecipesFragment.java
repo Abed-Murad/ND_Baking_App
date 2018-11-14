@@ -9,6 +9,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 
 import com.am.nd_baking_app.R;
+import com.am.nd_baking_app.model.Recipe;
 
 import butterknife.BindView;
 import butterknife.Unbinder;
@@ -23,6 +24,11 @@ public class AllRecipesFragment extends Fragment {
 
     public AllRecipesFragment() {
         // Required empty public constructor
+    }
+
+
+    public interface OnRecipeClickListener {
+        void onRecipeSelected(Recipe recipe);
     }
 
 }

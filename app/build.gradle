@@ -46,7 +46,7 @@ dependencies {
     /* ExoPlayer */
     implementation 'com.google.android.exoplayer:exoplayer:2.7.3'
 
-    /* Logger */ 
+    /* Logger */
     implementation 'com.orhanobut:logger:2.2.0'
 
     /* Testing */
