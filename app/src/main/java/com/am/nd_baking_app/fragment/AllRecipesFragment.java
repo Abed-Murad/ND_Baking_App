@@ -1,4 +1,6 @@
 package com.am.nd_baking_app.fragment;
 
-public class AllRecipesFragment {
+import android.support.v4.app.Fragment;
+
+public class AllRecipesFragment extends Fragment {
 }
