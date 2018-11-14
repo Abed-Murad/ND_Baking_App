@@ -1,4 +1,4 @@
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright 2018 Dionysios Karatzas
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,24 +14,52 @@
   ~ limitations under the License.
   -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ItemCardView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.am.nd_baking_app.fragment.AllRecipesFragment">
+    android:layout_height="wrap_content">
 
-    <include layout="@layout/no_data_layout" />
-
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/pull_to_refresh"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/margin_extra_large"
+        android:paddingTop="@dimen/margin_extra_large">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recipes_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/recipe_list_item" />
-    </android.support.v4.widget.SwipeRefreshLayout>
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/recipe_image"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/margin_large"
+            android:layout_marginStart="@dimen/margin_large"
+            android:contentDescription="@string/recipe_image"
+            app:layout_constraintBottom_toBottomOf="@+id/servings_text"
+            app:layout_constraintDimensionRatio="h,1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/recipe_name_text"
+            app:srcCompat="@drawable/ic_dinner" />
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/recipe_name_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_large"
+            android:layout_marginStart="@dimen/margin_large"
+            android:textSize="@dimen/text_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/recipe_image"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Nutella Pie" />
+
+        <TextView
+            android:id="@+id/servings_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintEnd_toEndOf="@+id/recipe_name_text"
+            app:layout_constraintStart_toStartOf="@+id/recipe_name_text"
+            app:layout_constraintTop_toBottomOf="@+id/recipe_name_text"
+            tools:text="Servings: 1" />
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>
