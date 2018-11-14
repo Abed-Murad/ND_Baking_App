@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">ND_Baking_App</string>
     <string name="servings">Servings: %d</string>
+
+    <string name="no_internet">Internet connection appears to be offline</string>
+    <string name="failed_to_load_data">Failed to fetch recipes data from the internet.</string>
+
+
 </resources>
