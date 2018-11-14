@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.am.nd_baking_app.R;
 import com.am.nd_baking_app.model.Recipe;
+import com.am.nd_baking_app.util.MyApplication;
 
 import java.util.List;
 
@@ -27,6 +28,10 @@ public class AllRecipesFragment extends Fragment {
     private OnRecipeClickListener mListener;
     private Unbinder unbinder;
     private List<Recipe> mRecipes;
+    private MyApplication myMyApplication;
+
+
+
 
 
     public AllRecipesFragment() {
