@@ -3,7 +3,11 @@ package com.am.nd_baking_app.fragment;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -22,7 +26,9 @@ import com.am.nd_baking_app.network.RecipesApiManager;
 import com.am.nd_baking_app.util.FUNC;
 import com.am.nd_baking_app.util.MyApplication;
 import com.am.nd_baking_app.util.SpacingItemDecoration;
+import com.orhanobut.logger.Logger;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -45,6 +51,18 @@ public class AllRecipesFragment extends Fragment {
     private List<Recipe> mRecipes;
     private MyApplication myMyApplication;
 
+    /**
+     * Will load the movies when the app launch, or if the app will launch without an internet connection
+     * and then reconnects, will load them without the need for user to perform a (pull to refresh)
+     */
+    private final BroadcastReceiver networkChangeReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (mRecipes == null) {
+                loadRecipes();
+            }
+        }
+    };
 
     public AllRecipesFragment() {
         // Required empty public constructor
@@ -103,6 +121,51 @@ public class AllRecipesFragment extends Fragment {
         mRecipesRecyclerView.addOnItemTouchListener(new RecyclerView.SimpleOnItemTouchListener());
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnRecipeClickListener) {
+            mListener = (OnRecipeClickListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnRecipeClickListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+        Logger.d("onDestroyView");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        getActivity().registerReceiver(networkChangeReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        getActivity().unregisterReceiver(networkChangeReceiver);
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        if (mRecipes != null && !mRecipes.isEmpty())
+            outState.putParcelableArrayList(RECIPES_KEY, (ArrayList<? extends Parcelable>) mRecipes);
+    }
 
     private void loadRecipes() {
         // Set SwipeRefreshLayout that refreshing in case that loadRecipes get called by the networkChangeReceiver
