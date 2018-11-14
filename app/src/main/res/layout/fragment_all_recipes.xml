@@ -18,6 +18,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/ItemCardView"
+    android:layout_margin="8dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -33,12 +34,12 @@
             android:layout_height="0dp"
             android:layout_marginLeft="@dimen/margin_large"
             android:layout_marginStart="@dimen/margin_large"
-            android:contentDescription="@string/recipe_image"
             app:layout_constraintBottom_toBottomOf="@+id/servings_text"
             app:layout_constraintDimensionRatio="h,1:1"
+            android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/recipe_name_text"
-            app:srcCompat="@drawable/ic_dinner" />
+            app:srcCompat="@drawable/recipe_placeholder" />
 
         <TextView
             android:id="@+id/recipe_name_text"
@@ -50,7 +51,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/recipe_image"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Nutella Pie" />
+            tools:text="Recipe Name" />
 
         <TextView
             android:id="@+id/servings_text"
