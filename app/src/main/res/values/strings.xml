@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ND_Baking_App</string>
+    <string name="servings">Servings: %d</string>
 </resources>
