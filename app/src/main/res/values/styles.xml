@@ -8,4 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ItemCardView" parent="CardView">
+        <item name="cardElevation">2dp</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+
 </resources>
