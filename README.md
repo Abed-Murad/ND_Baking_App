@@ -4,7 +4,7 @@
 You will productionize an app, taking it from a functional state to a production-ready state. This will involve finding and handling error cases, adding accessibility features, allowing for localization, adding a widget, and adding a library.
 
 ## Screenshots 
-
+Soon ...
 ## What Will you Learn?
 In this project you will:
 * Use MediaPlayer/Exoplayer to display videos.
@@ -14,7 +14,8 @@ In this project you will:
 * Use Fragments to create a responsive design that works on phones and tablets.
 
 ## Libraries
+Soon ...
 
 ## License
-
+Soon ...
 
