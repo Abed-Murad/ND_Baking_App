@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.am.nd_baking_app.R;
-import com.am.nd_baking_app.adapter.RecipesAdapter;
 import com.am.nd_baking_app.fragment.RecipeStepDetailFragment;
 import com.am.nd_baking_app.model.Recipe;
 import com.am.nd_baking_app.util.FUNC;
@@ -121,7 +120,7 @@ public class RecipeInfoActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.recipe_info, menu);
+        inflater.inflate(R.menu.menu_recipes_info, menu);
         return true;
     }
 

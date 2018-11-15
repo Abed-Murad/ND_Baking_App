@@ -35,7 +35,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                     .inflate(R.layout.recipe_ingredient_list_item, parent, false));
         } else { // Steps
             return new StepViewHolder(LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.recipe_step_list_item, parent, false));
+                    .inflate(R.layout.recipe_step_item, parent, false));
         }
 
     }
