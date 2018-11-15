@@ -29,9 +29,7 @@ import com.am.nd_baking_app.model.Recipe;
 import com.am.nd_baking_app.util.Prefs;
 
 
-/**
- * Implementation of App Widget functionality.
- */
+
 public class AppWidget extends AppWidgetProvider {
 
     public static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
@@ -74,12 +72,10 @@ public class AppWidget extends AppWidgetProvider {
 
     @Override
     public void onEnabled(Context context) {
-        // Enter relevant functionality for when the first widget is created
     }
 
     @Override
     public void onDisabled(Context context) {
-        // Enter relevant functionality for when the last widget is disabled
     }
 }
 
