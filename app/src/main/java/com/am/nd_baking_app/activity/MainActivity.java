@@ -21,6 +21,5 @@ public class MainActivity extends AppCompatActivity implements AllRecipesFragmen
         Intent intent = new Intent(this, RecipeInfoActivity.class);
         intent.putExtra(RecipeInfoActivity.RECIPE_KEY, recipe);
         startActivity(intent);
-
     }
 }

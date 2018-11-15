@@ -23,7 +23,7 @@ import com.orhanobut.logger.Logger;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-class RecipeInfoActivity extends AppCompatActivity {
+public class RecipeInfoActivity extends AppCompatActivity {
 
     public static final String RECIPE_KEY = "recipe_k";
 
@@ -129,7 +129,7 @@ class RecipeInfoActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_add_to_widget) {
 //            AppWidgetService.updateWidget(this, mRecipe);
-//            FUNC.makeSnackBar(this, mParentLayout, String.format(getString(R.string.added_to_widget), mRecipe.getName()), false);
+            FUNC.makeSnackBar(this, mParentLayout, String.format(getString(R.string.added_to_widget), mRecipe.getName()), false);
 
             return true;
         } else

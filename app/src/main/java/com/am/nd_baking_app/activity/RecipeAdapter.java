@@ -18,7 +18,7 @@ import java.util.Locale;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-class RecipeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class RecipeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Recipe mRecipe;
     private Listeners.OnItemClickListener mOnItemClickListener;
 

@@ -17,7 +17,7 @@ import com.orhanobut.logger.Logger;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-class RecipeStepDetailActivity extends AppCompatActivity {
+public class RecipeStepDetailActivity extends AppCompatActivity {
     @BindView(R.id.recipe_step_tab_layout)
     TabLayout mTlRecipeStep;
     @BindView(R.id.recipe_step_viewpager)

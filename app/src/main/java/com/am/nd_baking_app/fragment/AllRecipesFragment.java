@@ -24,6 +24,7 @@ import com.am.nd_baking_app.model.Recipe;
 import com.am.nd_baking_app.network.RecipesApiCallback;
 import com.am.nd_baking_app.network.RecipesApiManager;
 import com.am.nd_baking_app.util.FUNC;
+import com.am.nd_baking_app.util.Listeners;
 import com.am.nd_baking_app.util.MyApplication;
 import com.am.nd_baking_app.util.SpacingItemDecoration;
 import com.orhanobut.logger.Logger;
@@ -94,7 +95,7 @@ public class AllRecipesFragment extends Fragment {
         if (savedInstanceState != null && savedInstanceState.containsKey(RECIPES_KEY)) {
             mRecipes = savedInstanceState.getParcelableArrayList(RECIPES_KEY);
 
-            mRecipesRecyclerView.setAdapter(new RecipesAdapter(getActivity().getApplicationContext(), mRecipes, new RecipesAdapter.OnItemClickListener() {
+            mRecipesRecyclerView.setAdapter(new RecipesAdapter(getActivity().getApplicationContext(), mRecipes, new Listeners.OnItemClickListener() {
                 @Override
                 public void onItemClick(int position) {
                     mListener.onRecipeSelected(mRecipes.get(position));
@@ -177,7 +178,7 @@ public class AllRecipesFragment extends Fragment {
                 public void onResponse(final List<Recipe> result) {
                     if (result != null) {
                         mRecipes = result;
-                        mRecipesRecyclerView.setAdapter(new RecipesAdapter(getActivity().getApplicationContext(), mRecipes, new RecipesAdapter.OnItemClickListener() {
+                        mRecipesRecyclerView.setAdapter(new RecipesAdapter(getActivity().getApplicationContext(), mRecipes, new Listeners.OnItemClickListener() {
                             @Override
                             public void onItemClick(int position) {
                                 mListener.onRecipeSelected(mRecipes.get(position));
