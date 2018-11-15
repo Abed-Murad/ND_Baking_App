@@ -17,6 +17,7 @@ import com.am.nd_baking_app.model.Recipe;
 import com.am.nd_baking_app.util.FUNC;
 import com.am.nd_baking_app.util.Listeners;
 import com.am.nd_baking_app.util.SpacingItemDecoration;
+import com.am.nd_baking_app.widget.AppWidgetService;
 import com.orhanobut.logger.Logger;
 
 import butterknife.BindView;
@@ -127,7 +128,7 @@ public class RecipeInfoActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_add_to_widget) {
-//            AppWidgetService.updateWidget(this, mRecipe);
+            AppWidgetService.updateWidget(this, mRecipe);
             FUNC.makeSnackBar(this, mParentLayout, String.format(getString(R.string.added_to_widget), mRecipe.getName()), false);
 
             return true;
