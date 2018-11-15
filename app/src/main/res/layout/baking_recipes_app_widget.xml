@@ -18,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="@dimen/margin_medium"
+        android:background="@android:color/black"
         android:layout_weight="1"
         android:divider="@android:color/white"
         android:dividerHeight="1dp" />
