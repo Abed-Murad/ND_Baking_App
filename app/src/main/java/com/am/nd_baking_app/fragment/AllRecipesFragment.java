@@ -26,6 +26,7 @@ import com.am.nd_baking_app.network.RecipesApiManager;
 import com.am.nd_baking_app.util.FUNC;
 import com.am.nd_baking_app.util.Listeners;
 import com.am.nd_baking_app.util.MyApplication;
+import com.am.nd_baking_app.util.Prefs;
 import com.am.nd_baking_app.util.SpacingItemDecoration;
 import com.orhanobut.logger.Logger;
 
@@ -185,11 +186,9 @@ public class AllRecipesFragment extends Fragment {
                             }
                         }));
                         // Set the default recipe for the widget
-/*
                         if (Prefs.loadRecipe(getActivity().getApplicationContext()) == null) {
                             AppWidgetService.updateWidget(getActivity(), mRecipes.get(0));
                         }
-*/
 
                     } else {
 
@@ -211,6 +210,7 @@ public class AllRecipesFragment extends Fragment {
             FUNC.makeSnackBar(getActivity(), getView(), getString(R.string.no_internet), true);
         }
     }
+
     /**
      * Check if data is loaded and show/hide Recipes RecyclerView & NoDataContainer regarding the recipes data state
      */

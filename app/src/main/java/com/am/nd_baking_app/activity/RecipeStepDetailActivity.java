@@ -9,7 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.am.nd_baking_app.R;
-import com.am.nd_baking_app.fragment.StepsFragmentPagerAdapter;
+import com.am.nd_baking_app.adapter.StepsFragmentPagerAdapter;
 import com.am.nd_baking_app.model.Recipe;
 import com.am.nd_baking_app.util.FUNC;
 import com.orhanobut.logger.Logger;

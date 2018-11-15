@@ -1,4 +1,4 @@
-package com.am.nd_baking_app.fragment;
+package com.am.nd_baking_app.adapter;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.am.nd_baking_app.R;
+import com.am.nd_baking_app.fragment.RecipeStepDetailFragment;
 import com.am.nd_baking_app.model.Step;
 
 import java.util.List;
