@@ -36,7 +36,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
     @Override
     public RecipeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.recipe_list_item, parent, false);
+                .inflate(R.layout.item_recipe, parent, false);
 
         return new RecipeViewHolder(view);
     }
@@ -52,7 +52,8 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
             GlideApp.with(mContext)
                     .load(recipeImage)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .placeholder(R.drawable.recipe_placeholder)
+                    .error(R.drawable.image_dessert)
+                    .placeholder(R.drawable.image_dessert)
                     .into(holder.mIvRecipe);
         }
 

@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/margin_medium"
         android:text="@string/data_not_available"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/text_extra_large" />
 
     <ListView
@@ -18,8 +18,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="@dimen/margin_medium"
-        android:background="@android:color/black"
         android:layout_weight="1"
+        android:background="@color/colorPrimaryDark"
         android:divider="@android:color/white"
         android:dividerHeight="1dp" />
 
