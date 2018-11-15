@@ -49,7 +49,8 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             StringBuilder ingValue = new StringBuilder();
             for (int i = 0; i < mRecipe.getIngredients().size(); i++) {
                 Ingredients ingredients = mRecipe.getIngredients().get(i);
-                ingValue.append(String.format(Locale.getDefault(), "• %s (%d %s)", ingredients.getIngredient(), ingredients.getQuantity(), ingredients.getMeasure()));
+                int k = i + 1;
+                ingValue.append(String.format(Locale.getDefault(),  "- (%d %s) %s", ingredients.getQuantity(), ingredients.getMeasure(), ingredients.getIngredient()));
                 if (i != mRecipe.getIngredients().size() - 1)
                     ingValue.append("\n");
             }

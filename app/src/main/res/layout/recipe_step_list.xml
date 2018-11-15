@@ -6,8 +6,8 @@
     android:name="eu.dkaratzas.bakingrecipes.ui.RecipeStepListFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
     app:layoutManager="android.support.v7.widget.LinearLayoutManager"
     tools:context="com.am.nd_baking_app.activity.RecipeInfoActivity"
     tools:listitem="@layout/recipe_step_item" />

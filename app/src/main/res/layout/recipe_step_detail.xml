@@ -47,14 +47,14 @@
                 android:id="@+id/instruction_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                tools:text="Instruction Text"
-                android:layout_marginLeft="@dimen/margin_medium"
-                android:layout_marginStart="@dimen/margin_medium"
+                android:fontFamily="sans-serif"
                 android:lineSpacingExtra="1dp"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="@dimen/text_large"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/step_thumbnail_image"
-                app:layout_constraintTop_toTopOf="@+id/step_thumbnail_image" />
+                app:layout_constraintTop_toTopOf="@+id/step_thumbnail_image"
+                tools:text="Instruction Text" />
 
             <android.support.constraint.Guideline
                 android:id="@+id/guideline3"

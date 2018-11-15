@@ -1,16 +1,15 @@
 <resources>
-    <string name="app_name">ND_Baking_App</string>
+    <string name="app_name">Baking App</string>
     <string name="servings">Servings: %d</string>
-
     <string name="recipe_image">Recipe image</string>
     <string name="data_not_available">Recipes data not available.</string>
     <string name="failed_to_load_recipe">Failed to load recipe data</string>
+    <string name="added_to_widget">Recipe %s added to widget</string>
     <string name="title_recipe_step_detail">RecipeStep Detail</string>
     <string name="ingredients">Ingredients</string>
     <string name="add_to_widget">Add to widget</string>
     <string name="step">Step %d</string>
     <string name="widget_recipe_key">widget_recipe_key</string>
-    <string name="added_to_widget">Recipe %s added to widget</string>
     <string name="failed_to_load_data">Failed to fetch recipes data from the internet.</string>
     <string name="no_internet">Internet connection appears to be offline</string>
 

@@ -7,7 +7,7 @@
     android:divider="?android:attr/dividerHorizontal"
     android:orientation="horizontal"
     android:showDividers="middle"
-    tools:context="eu.dkaratzas.bakingrecipes.ui.activities.RecipeInfoActivity">
+    tools:context=".activity.RecipeInfoActivity">
 
     <!--
     This layout is a two-pane layout for the RecipeSteps
@@ -22,7 +22,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        app:layoutManager="LinearLayoutManager"
+        app:layoutManager="android.support.v7.widget.LinearLayoutManager"
         tools:context="eu.dkaratzas.bakingrecipes.ui.activities.RecipeInfoActivity"
         tools:listitem="@layout/recipe_step_item" />
 
