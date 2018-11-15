@@ -38,13 +38,4 @@
         app:layout_constraintTop_toTopOf="@+id/step_order_text"
         tools:text="Recipe Intro" />
 
-    <FrameLayout
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:background="@color/colorLightGrey"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="@id/step_name_text"
-        app:layout_constraintRight_toRightOf="parent" />
-
 </android.support.constraint.ConstraintLayout>
