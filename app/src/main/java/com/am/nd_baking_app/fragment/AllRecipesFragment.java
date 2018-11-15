@@ -28,6 +28,7 @@ import com.am.nd_baking_app.util.Listeners;
 import com.am.nd_baking_app.util.MyApplication;
 import com.am.nd_baking_app.util.Prefs;
 import com.am.nd_baking_app.util.SpacingItemDecoration;
+import com.am.nd_baking_app.widget.AppWidgetService;
 import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
