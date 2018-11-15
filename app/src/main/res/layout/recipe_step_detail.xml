@@ -4,16 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.exoplayer2.ui.SimpleExoPlayerView
+    <com.google.android.exoplayer2.ui.PlayerView
         android:id="@+id/exo_player_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </com.google.android.exoplayer2.ui.SimpleExoPlayerView>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/instructions_container"
@@ -49,6 +47,7 @@
                 android:id="@+id/instruction_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                tools:text="Instruction Text"
                 android:layout_marginLeft="@dimen/margin_medium"
                 android:layout_marginStart="@dimen/margin_medium"
                 android:lineSpacingExtra="1dp"

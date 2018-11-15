@@ -23,7 +23,7 @@ import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.trackselection.TrackSelector;
-import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
+import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
@@ -35,16 +35,14 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 public class RecipeStepDetailFragment extends Fragment {
-    public static final String STEP_KEY = "step_k";
-    private static final String POSITION_KEY = "pos_k";
-    private static final String PLAY_WHEN_READY_KEY = "play_when_ready_k";
+    public static final String KEY_STEP = "step_k";
+    private static final String KEY_POSITION = "pos_k";
+    private static final String KEY_READY_TO_PLAY = "play_when_ready_k";
 
     @BindView(R.id.instructions_container)
     NestedScrollView mInstructionsContainer;
-
-
     @BindView(R.id.exo_player_view)
-    SimpleExoPlayerView mExoPlayerView;
+    PlayerView mExoPlayerView;
     @BindView(R.id.step_thumbnail_image)
     ImageView mIvThumbnail;
     @BindView(R.id.instruction_text)
@@ -64,8 +62,8 @@ public class RecipeStepDetailFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (getArguments() != null && getArguments().containsKey(STEP_KEY)) {
-            mStep = getArguments().getParcelable(STEP_KEY);
+        if (getArguments() != null && getArguments().containsKey(KEY_STEP)) {
+            mStep = getArguments().getParcelable(KEY_STEP);
         }
     }
 
@@ -74,22 +72,14 @@ public class RecipeStepDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.recipe_step_detail, container, false);
 
-        if (savedInstanceState != null && savedInstanceState.containsKey(POSITION_KEY)) {
-            mCurrentPosition = savedInstanceState.getLong(POSITION_KEY);
-            mPlayWhenReady = savedInstanceState.getBoolean(PLAY_WHEN_READY_KEY);
+        if (savedInstanceState != null && savedInstanceState.containsKey(KEY_POSITION)) {
+            mCurrentPosition = savedInstanceState.getLong(KEY_POSITION);
+            mPlayWhenReady = savedInstanceState.getBoolean(KEY_READY_TO_PLAY);
         }
-
         unbinder = ButterKnife.bind(this, rootView);
-
         mTvInstructions.setText(mStep.getDescription());
-
-        // Show thumbnail if url exists
         if (!mStep.getThumbnailURL().isEmpty()) {
-            GlideApp.with(this)
-                    .load(mStep.getThumbnailURL())
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .placeholder(R.drawable.recipe_placeholder)
-                    .into(mIvThumbnail);
+            GlideApp.with(this).load(mStep.getThumbnailURL()).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.drawable.recipe_placeholder).into(mIvThumbnail);
             mIvThumbnail.setVisibility(View.VISIBLE);
         }
 
@@ -126,8 +116,8 @@ public class RecipeStepDetailFragment extends Fragment {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
-        outState.putLong(POSITION_KEY, mCurrentPosition);
-        outState.putBoolean(PLAY_WHEN_READY_KEY, mPlayWhenReady);
+        outState.putLong(KEY_POSITION, mCurrentPosition);
+        outState.putBoolean(KEY_READY_TO_PLAY, mPlayWhenReady);
     }
 
     private void initializePlayer(Uri mediaUri) {
@@ -159,9 +149,6 @@ public class RecipeStepDetailFragment extends Fragment {
         }
     }
 
-    /**
-     * Release ExoPlayer.
-     */
     private void releasePlayer() {
         if (mExoPlayer != null) {
             mPlayWhenReady = mExoPlayer.getPlayWhenReady();

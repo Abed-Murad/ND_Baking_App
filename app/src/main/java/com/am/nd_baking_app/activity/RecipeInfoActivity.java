@@ -102,7 +102,7 @@ public class RecipeInfoActivity extends AppCompatActivity {
     private void showStep(int position) {
         if (mTwoPane) {
             Bundle arguments = new Bundle();
-            arguments.putParcelable(RecipeStepDetailFragment.STEP_KEY, mRecipe.getSteps().get(position));
+            arguments.putParcelable(RecipeStepDetailFragment.KEY_STEP, mRecipe.getSteps().get(position));
             RecipeStepDetailFragment fragment = new RecipeStepDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()

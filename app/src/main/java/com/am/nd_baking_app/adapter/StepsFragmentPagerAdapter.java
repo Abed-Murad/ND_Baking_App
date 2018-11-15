@@ -26,7 +26,7 @@ public class StepsFragmentPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         Bundle arguments = new Bundle();
-        arguments.putParcelable(RecipeStepDetailFragment.STEP_KEY, mSteps.get(position));
+        arguments.putParcelable(RecipeStepDetailFragment.KEY_STEP, mSteps.get(position));
         RecipeStepDetailFragment fragment = new RecipeStepDetailFragment();
         fragment.setArguments(arguments);
 

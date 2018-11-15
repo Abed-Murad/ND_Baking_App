@@ -39,10 +39,11 @@
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/recipe_name_text"
-            app:srcCompat="@drawable/recipe_placeholder" />
+            app:srcCompat="@drawable/ic_rice" />
 
         <TextView
             android:id="@+id/recipe_name_text"
+            android:textColor="@color/colorPrimary"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_large"
