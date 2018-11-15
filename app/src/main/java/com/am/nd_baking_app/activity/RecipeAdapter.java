@@ -113,5 +113,5 @@ class RecipeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
 
     }
-    
+
 }

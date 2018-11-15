@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.am.nd_baking_app.R;
 import com.am.nd_baking_app.model.Recipe;
 import com.am.nd_baking_app.util.GlideApp;
+import com.am.nd_baking_app.util.Listeners;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.List;
@@ -23,9 +24,9 @@ import butterknife.ButterKnife;
 public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeViewHolder> {
     private Context mContext;
     private List<Recipe> mRecipes;
-    private OnItemClickListener mOnItemClickListener;
+    private Listeners.OnItemClickListener mOnItemClickListener;
 
-    public RecipesAdapter(Context context, List<Recipe> recipes, OnItemClickListener onItemClickListener) {
+    public RecipesAdapter(Context context, List<Recipe> recipes, Listeners.OnItemClickListener onItemClickListener) {
         this.mContext = context;
         this.mRecipes = recipes;
         this.mOnItemClickListener = onItemClickListener;
@@ -85,8 +86,5 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
     }
 
 
-    public interface OnItemClickListener {
-        void onItemClick(int position);
-    }
 
 }

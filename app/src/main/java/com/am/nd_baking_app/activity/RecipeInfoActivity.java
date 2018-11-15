@@ -16,6 +16,7 @@ import com.am.nd_baking_app.adapter.RecipesAdapter;
 import com.am.nd_baking_app.fragment.RecipeStepDetailFragment;
 import com.am.nd_baking_app.model.Recipe;
 import com.am.nd_baking_app.util.FUNC;
+import com.am.nd_baking_app.util.Listeners;
 import com.am.nd_baking_app.util.SpacingItemDecoration;
 import com.orhanobut.logger.Logger;
 
@@ -90,7 +91,7 @@ class RecipeInfoActivity extends AppCompatActivity {
 
     private void setupRecyclerView() {
         mRecyclerView.addItemDecoration(new SpacingItemDecoration((int) getResources().getDimension(R.dimen.margin_medium)));
-        mRecyclerView.setAdapter(new RecipeAdapter(mRecipe, new OnItemClickListener() {
+        mRecyclerView.setAdapter(new RecipeAdapter(mRecipe, new Listeners.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
                 showStep(position);
