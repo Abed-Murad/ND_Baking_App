@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="eu.dkaratzas.bakingrecipes.ui.activities.RecipeInfoActivity">
+    tools:context="com.am.nd_baking_app.activity.RecipeInfoActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
