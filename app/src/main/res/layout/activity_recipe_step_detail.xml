@@ -1,48 +1,51 @@
-<layout><LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical"
-    tools:context="com.am.nd_baking_app.activity.RecipeStepDetailActivity"
-    tools:ignore="MergeRootFrame">
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/app_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        app:elevation="0dp">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/detail_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        tools:context="com.am.nd_baking_app.activity.RecipeStepDetailActivity"
+        tools:ignore="MergeRootFrame">
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/recipe_step_tab_layout"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            app:tabGravity="fill"
-            app:tabMode="scrollable"
-            app:tabSelectedTextColor="@color/colorAccent"
-            app:tabTextColor="@android:color/white" />
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:elevation="0dp">
 
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/recipe_step_viewpager"
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/detail_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-</LinearLayout>
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/recipe_step_tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                app:tabGravity="fill"
+                app:tabMode="scrollable"
+                app:tabSelectedTextColor="@color/colorAccent"
+                app:tabTextColor="@android:color/white" />
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/recipe_step_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </LinearLayout>
 </layout>

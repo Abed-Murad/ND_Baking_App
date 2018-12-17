@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity implements AllRecipesFragmen
 
     @Override
     public void onRecipeSelected(Recipe recipe) {
-        Intent intent = new Intent(this, RecipeInfoActivity.class);
+        Intent intent = new Intent(MainActivity.this, RecipeInfoActivity.class);
         intent.putExtra(RecipeInfoActivity.RECIPE_KEY, recipe);
         startActivity(intent);
     }
