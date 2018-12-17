@@ -9,7 +9,7 @@
         android:layout_height="match_parent">
 
         <com.google.android.exoplayer2.ui.SimpleExoPlayerView
-            android:id="@+id/exo_player_view"
+            android:id="@+id/exoPlayerView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:visibility="gone"
@@ -22,7 +22,7 @@
         </com.google.android.exoplayer2.ui.SimpleExoPlayerView>
 
         <androidx.core.widget.NestedScrollView
-            android:id="@+id/instructions_container"
+            android:id="@+id/instructionsContainerScrollView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:padding="@dimen/margin_large"
@@ -30,7 +30,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/exo_player_view"
+            app:layout_constraintTop_toBottomOf="@+id/exoPlayerView"
             app:layout_constraintVertical_bias="0.0">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:id="@+id/step_thumbnail_image"
+                    android:id="@+id/stepThumbnailImageView"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_marginEnd="@dimen/margin_medium"
@@ -54,7 +54,7 @@
                     tools:ignore="ContentDescription" />
 
                 <TextView
-                    android:id="@+id/instruction_text"
+                    android:id="@+id/instructionTextView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_medium"
@@ -62,8 +62,8 @@
                     android:lineSpacingExtra="1dp"
                     android:textSize="@dimen/text_large"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/step_thumbnail_image"
-                    app:layout_constraintTop_toTopOf="@+id/step_thumbnail_image" />
+                    app:layout_constraintStart_toEndOf="@+id/stepThumbnailImageView"
+                    app:layout_constraintTop_toTopOf="@+id/stepThumbnailImageView" />
 
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/guideline3"

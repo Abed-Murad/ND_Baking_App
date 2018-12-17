@@ -2,8 +2,10 @@ package com.am.nd_baking_app.fragment;
 
 import android.net.Uri;
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
 import androidx.core.widget.NestedScrollView;
+
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,34 +25,22 @@ import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.trackselection.TrackSelector;
-import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
-import com.orhanobut.logger.Logger;
+import com.am.nd_baking_app.databinding.RecipeStepDetailBinding;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 public class RecipeStepDetailFragment extends Fragment {
     public static final String KEY_STEP = "step_k";
     private static final String KEY_POSITION = "pos_k";
     private static final String KEY_READY_TO_PLAY = "play_when_ready_k";
 
-    @BindView(R.id.instructions_container)
-    NestedScrollView mInstructionsContainer;
-    @BindView(R.id.exo_player_view)
-    PlayerView mExoPlayerView;
-    @BindView(R.id.step_thumbnail_image)
-    ImageView mIvThumbnail;
-    @BindView(R.id.instruction_text)
-    TextView mTvInstructions;
 
+    private RecipeStepDetailBinding mBinding;
     private SimpleExoPlayer mExoPlayer;
     private Step mStep;
-    private Unbinder unbinder;
 
     private long mCurrentPosition = 0;
     private boolean mPlayWhenReady = true;
@@ -70,20 +60,20 @@ public class RecipeStepDetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.recipe_step_detail, container, false);
+        mBinding = RecipeStepDetailBinding.inflate(R.layout.recipe_step_detail, container, false);
 
         if (savedInstanceState != null && savedInstanceState.containsKey(KEY_POSITION)) {
             mCurrentPosition = savedInstanceState.getLong(KEY_POSITION);
             mPlayWhenReady = savedInstanceState.getBoolean(KEY_READY_TO_PLAY);
         }
-        unbinder = ButterKnife.bind(this, rootView);
-        mTvInstructions.setText(mStep.getDescription());
+
+        mBinding.instructionTextView.setText(mStep.getDescription());
         if (!mStep.getThumbnailURL().isEmpty()) {
-            GlideApp.with(this).load(mStep.getThumbnailURL()).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.drawable.recipe_placeholder).into(mIvThumbnail);
-            mIvThumbnail.setVisibility(View.VISIBLE);
+            GlideApp.with(this).load(mStep.getThumbnailURL()).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.drawable.recipe_placeholder).into(mBinding.stepThumbnailImageView);
+            mBinding.stepThumbnailImageView.setVisibility(View.VISIBLE);
         }
 
-        return rootView;
+        return mBinding.getRoot();
     }
 
     @Override
@@ -93,7 +83,7 @@ public class RecipeStepDetailFragment extends Fragment {
             initializePlayer(Uri.parse(mStep.getVideoURL()));
         else {
             // Un- hide InstructionsContainer because in case of phone landscape is hidden
-            mInstructionsContainer.setVisibility(View.VISIBLE);
+            mBinding.instructionsContainerScrollView.setVisibility(View.VISIBLE);
         }
     }
 
@@ -102,15 +92,6 @@ public class RecipeStepDetailFragment extends Fragment {
         super.onPause();
         releasePlayer();
     }
-
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-        Logger.d("onDestroyView");
-    }
-
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -131,7 +112,7 @@ public class RecipeStepDetailFragment extends Fragment {
             mExoPlayer = ExoPlayerFactory.newSimpleInstance(getContext(), trackSelector);
 
             // Bind the player to the view.
-            mExoPlayerView.setPlayer(mExoPlayer);
+            mBinding.exoPlayerView.setPlayer(mExoPlayer);
             // Measures bandwidth during playback. Can be null if not required.
             // Produces DataSource instances through which media data is loaded.
             DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(getContext(), Util.getUserAgent(getContext(), getString(R.string.app_name)), bandwidthMeter);
@@ -145,7 +126,7 @@ public class RecipeStepDetailFragment extends Fragment {
                 mExoPlayer.seekTo(mCurrentPosition);
 
             mExoPlayer.setPlayWhenReady(mPlayWhenReady);
-            mExoPlayerView.setVisibility(View.VISIBLE);
+            mBinding.exoPlayerView.setVisibility(View.VISIBLE);
         }
     }
 
@@ -159,7 +140,6 @@ public class RecipeStepDetailFragment extends Fragment {
             mExoPlayer = null;
         }
     }
-
 
 
 }
