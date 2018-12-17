@@ -47,7 +47,6 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
         if (holder instanceof IngredientsViewHolder) {
             IngredientsViewHolder viewHolder = (IngredientsViewHolder) holder;
-
             StringBuilder ingValue = new StringBuilder();
             for (int i = 0; i < mRecipe.getIngredients().size(); i++) {
                 Ingredients ingredients = mRecipe.getIngredients().get(i);
@@ -57,7 +56,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                     ingValue.append("\n");
             }
 
-            viewHolder.mTvIngredients.setText(ingValue.toString());
+//            viewHolder.mTvIngredients.setText(ingValue.toString());
         } else if (holder instanceof StepViewHolder) {
             StepViewHolder viewHolder = (StepViewHolder) holder;
             viewHolder.mTvStepOrder.setText(String.valueOf(position));
