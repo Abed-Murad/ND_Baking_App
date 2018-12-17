@@ -25,10 +25,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                  />
-            <View
-                android:layout_width="match_parent"
-                android:foreground="@drawable/bg_text_foreground_shadow"
-                android:layout_height="match_parent" />
+
             <TextView
                 android:id="@+id/recipeNameTextView"
                 style="@style/Base.TextAppearance.AppCompat.Headline"
