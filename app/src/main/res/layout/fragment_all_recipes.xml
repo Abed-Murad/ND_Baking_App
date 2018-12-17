@@ -8,15 +8,16 @@
         android:layout_marginTop="16dp"
         tools:context="com.am.nd_baking_app.fragment.AllRecipesFragment">
 
-        <include layout="@layout/no_data_layout" />
+        <include android:id="@+id/noDataIncludeContainer"
+            layout="@layout/no_data_layout" />
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/pull_to_refresh"
+            android:id="@+id/swipeRefreshLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recipes_recycler_view"
+                android:id="@+id/recipesRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:listitem="@layout/item_recipe" />

@@ -68,7 +68,7 @@ public class ExampleInstrumentedTest {
                 .clear()
                 .commit();
 
-        onView(withId(R.id.recipes_recycler_view))
+        onView(withId(R.id.recipesRecyclerView))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
 
         onView(withId(R.id.action_add_to_widget))
