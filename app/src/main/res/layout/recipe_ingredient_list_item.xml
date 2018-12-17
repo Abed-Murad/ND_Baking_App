@@ -38,7 +38,7 @@
             android:layout_marginStart="1dp"
             android:layout_marginLeft="1dp"
             android:layout_marginTop="@dimen/margin_large"
-            android:text="@string/ingredients"
+            android:text="@string/ingredient"
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/text_extra_large"
             app:layout_constraintStart_toStartOf="parent"

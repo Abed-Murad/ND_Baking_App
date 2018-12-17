@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.am.nd_baking_app.R;
-import com.am.nd_baking_app.model.Ingredients;
+import com.am.nd_baking_app.model.Ingredient;
 import com.am.nd_baking_app.model.Recipe;
 import com.am.nd_baking_app.util.Listeners;
 
@@ -32,7 +32,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        if (viewType == 0) { // Ingredients
+        if (viewType == 0) { // Ingredient
             return new IngredientsViewHolder(LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.recipe_ingredient_list_item, parent, false));
         } else { // Steps
@@ -49,9 +49,9 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             IngredientsViewHolder viewHolder = (IngredientsViewHolder) holder;
             StringBuilder ingValue = new StringBuilder();
             for (int i = 0; i < mRecipe.getIngredients().size(); i++) {
-                Ingredients ingredients = mRecipe.getIngredients().get(i);
+                Ingredient ingredient = mRecipe.getIngredients().get(i);
                 int k = i + 1;
-                ingValue.append(String.format(Locale.getDefault(), "- (%d %s) %s", ingredients.getQuantity(), ingredients.getMeasure(), ingredients.getIngredient()));
+                ingValue.append(String.format(Locale.getDefault(), "- (%d %s) %s", ingredient.getQuantity(), ingredient.getMeasure(), ingredient.getIngredient()));
                 if (i != mRecipe.getIngredients().size() - 1)
                     ingValue.append("\n");
             }

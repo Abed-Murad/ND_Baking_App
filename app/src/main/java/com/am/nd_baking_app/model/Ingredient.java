@@ -22,7 +22,7 @@ import android.os.Parcelable;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 
-public class Ingredients implements Parcelable {
+public class Ingredient implements Parcelable {
     @JsonProperty("quantity")
     private int quantity;
     @JsonProperty("measure")
@@ -30,7 +30,7 @@ public class Ingredients implements Parcelable {
     @JsonProperty("ingredient")
     private String ingredient;
 
-    public Ingredients() {
+    public Ingredient() {
         this.quantity = 0;
         this.measure = "";
         this.ingredient = "";
@@ -49,21 +49,21 @@ public class Ingredients implements Parcelable {
         dest.writeString(this.ingredient);
     }
 
-    protected Ingredients(Parcel in) {
+    protected Ingredient(Parcel in) {
         this.quantity = in.readInt();
         this.measure = in.readString();
         this.ingredient = in.readString();
     }
 
-    public static final Creator<Ingredients> CREATOR = new Creator<Ingredients>() {
+    public static final Creator<Ingredient> CREATOR = new Creator<Ingredient>() {
         @Override
-        public Ingredients createFromParcel(Parcel source) {
-            return new Ingredients(source);
+        public Ingredient createFromParcel(Parcel source) {
+            return new Ingredient(source);
         }
 
         @Override
-        public Ingredients[] newArray(int size) {
-            return new Ingredients[size];
+        public Ingredient[] newArray(int size) {
+            return new Ingredient[size];
         }
     };
 
@@ -82,7 +82,7 @@ public class Ingredients implements Parcelable {
 
     @Override
     public String toString() {
-        return "Ingredients{" +
+        return "Ingredient{" +
                 "quantity=" + quantity +
                 ", measure='" + measure + '\'' +
                 ", ingredient='" + ingredient + '\'' +

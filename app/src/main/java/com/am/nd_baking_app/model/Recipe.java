@@ -37,7 +37,7 @@ public class Recipe implements Parcelable {
     @JsonProperty("name")
     private String name;
     @JsonProperty("ingredients")
-    private List<Ingredients> ingredients;
+    private List<Ingredient> ingredients;
     @JsonProperty("id")
     private int id;
     @JsonProperty("steps")
@@ -73,7 +73,7 @@ public class Recipe implements Parcelable {
         this.servings = in.readInt();
         this.name = in.readString();
         this.ingredients = new ArrayList<>();
-        in.readList(this.ingredients, Ingredients.class.getClassLoader());
+        in.readList(this.ingredients, Ingredient.class.getClassLoader());
         this.id = in.readInt();
         this.steps = new ArrayList<>();
         in.readList(this.steps, Step.class.getClassLoader());
@@ -104,7 +104,7 @@ public class Recipe implements Parcelable {
         return name;
     }
 
-    public List<Ingredients> getIngredients() {
+    public List<Ingredient> getIngredients() {
         return ingredients;
     }
 
