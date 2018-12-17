@@ -8,12 +8,11 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         app:cardCornerRadius="8dp"
-        app:cardElevation="16dp">
+        app:cardElevation="8dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
-
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:background="?android:attr/selectableItemBackground"
@@ -22,7 +21,7 @@
 
             <View
                 android:id="@+id/imageView"
-                android:background="@drawable/bg_text_foreground_shadow"
+                android:background="@drawable/bg_step"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"

@@ -23,14 +23,33 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <FrameLayout
+        <LinearLayout
             android:id="@+id/frameLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+            <com.google.android.material.tabs.TabLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.tabs.TabItem
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Steps" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Ingredients" />
+
+            </com.google.android.material.tabs.TabLayout>
+
             <include layout="@layout/recipe_step_list" />
-        </FrameLayout>
+        </LinearLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
