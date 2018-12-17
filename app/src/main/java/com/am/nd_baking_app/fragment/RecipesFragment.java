@@ -40,7 +40,7 @@ import java.util.List;
 import butterknife.Unbinder;
 
 
-public class AllRecipesFragment extends Fragment {
+public class RecipesFragment extends Fragment {
 
     private static String KEY_RECIPES = "recipes";
 
@@ -63,7 +63,7 @@ public class AllRecipesFragment extends Fragment {
         }
     };
 
-    public AllRecipesFragment() {
+    public RecipesFragment() {
         // Required empty public constructor
     }
 
