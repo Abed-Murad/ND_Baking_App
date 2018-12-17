@@ -8,7 +8,7 @@
         android:layout_height="200dp">
 
         <ImageView
-            android:id="@+id/recipe_image"
+            android:id="@+id/recipeImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
@@ -28,7 +28,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/recipe_name_text"
+            android:id="@+id/recipeNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -41,7 +41,7 @@
             tools:text="Nutella Pie" />
 
         <TextView
-            android:id="@+id/servings_text"
+            android:id="@+id/servingsTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"

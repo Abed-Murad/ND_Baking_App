@@ -2,14 +2,17 @@ package com.am.nd_baking_app.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.am.nd_baking_app.databinding.ItemRecipeBinding;
 import com.am.nd_baking_app.R;
 import com.am.nd_baking_app.model.Recipe;
 import com.am.nd_baking_app.util.GlideApp;
@@ -19,51 +22,36 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeViewHolder> {
     private Context mContext;
     private List<Recipe> mRecipes;
+    private LayoutInflater mInflater;
+    private ItemRecipeBinding mBinding;
     private Listeners.OnItemClickListener mOnItemClickListener;
 
     public RecipesAdapter(Context context, List<Recipe> recipes, Listeners.OnItemClickListener onItemClickListener) {
         this.mContext = context;
         this.mRecipes = recipes;
+        this.mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.mOnItemClickListener = onItemClickListener;
+
     }
 
     @NonNull
     @Override
     public RecipeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_recipe, parent, false);
-
-        return new RecipeViewHolder(view);
+        mBinding = ItemRecipeBinding.inflate(mInflater, parent, false);
+        return new RecipeViewHolder(mBinding);
     }
 
     @SuppressLint("RecyclerView")
     @Override
     public void onBindViewHolder(@NonNull RecipeViewHolder holder, final int position) {
-        holder.mTvRecipeName.setText(mRecipes.get(position).getName());
-        holder.mTvServings.setText(mContext.getString(R.string.servings, mRecipes.get(position).getServings()));
 
-        String recipeImage = mRecipes.get(position).getImage();
-        if (!recipeImage.isEmpty()) {
-            GlideApp.with(mContext)
-                    .load(recipeImage)
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .error(R.drawable.image_dessert)
-                    .placeholder(R.drawable.image_dessert)
-                    .into(holder.mIvRecipe);
-        }
+        Recipe recipe = mRecipes.get(position);
+        holder.bind(recipe);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mOnItemClickListener != null)
-                    mOnItemClickListener.onItemClick(position);
-            }
-        });
     }
 
     @Override
@@ -72,20 +60,35 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
     }
 
     public class RecipeViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.recipe_name_text)
-        TextView mTvRecipeName;
-        @BindView(R.id.servings_text)
-        TextView mTvServings;
-        @BindView(R.id.recipe_image)
-        AppCompatImageView mIvRecipe;
+        private ItemRecipeBinding mBinding;
 
-        RecipeViewHolder(View itemView) {
-            super(itemView);
-            ButterKnife.bind(this, itemView);
+        RecipeViewHolder(ItemRecipeBinding binding) {
+            super(binding.getRoot());
+            this.mBinding = binding;
+        }
+
+        private void bind(Recipe recipe) {
+            String recipeImage = recipe.getImage();
+            if (!recipeImage.isEmpty()) {
+                GlideApp.with(mContext)
+                        .load(recipeImage)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .error(R.drawable.image_dessert)
+                        .placeholder(R.drawable.image_dessert)
+                        .into(mBinding.recipeImageView);
+            }
+
+            mBinding.recipeNameTextView.setText(recipe.getName());
+            mBinding.servingsTextView.setText(mContext.getString(R.string.servings, recipe.getServings()));
+
+            mBinding.getRoot().setOnClickListener(v -> {
+                if (mOnItemClickListener != null)
+                    mOnItemClickListener.onItemClick(getAdapterPosition());
+            });
+
         }
 
     }
-
 
 
 }
