@@ -47,7 +47,6 @@ public class AllRecipesFragment extends Fragment {
     private OnRecipeClickListener mListener;
     private FragmentAllRecipesBinding mBinding;
     private NoDataLayoutBinding mNoDataBinding;
-    private Unbinder unbinder;
     private List<Recipe> mRecipes;
     private MyApplication myMyApplication;
 
@@ -140,7 +139,6 @@ public class AllRecipesFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        unbinder.unbind();
         Logger.d("onDestroyView");
     }
 
