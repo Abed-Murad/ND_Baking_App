@@ -27,7 +27,7 @@
             android:layout_weight="1"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:context="eu.dkaratzas.bakingrecipes.ui.activities.RecipeInfoActivity"
-            tools:listitem="@layout/recipe_step_item" />
+            tools:listitem="@layout/item_step" />
 
         <FrameLayout
             android:id="@+id/recipe_step_detail_container"

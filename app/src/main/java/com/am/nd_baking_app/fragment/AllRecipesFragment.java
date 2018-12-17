@@ -169,12 +169,8 @@ public class AllRecipesFragment extends Fragment {
                 public void onResponse(final List<Recipe> result) {
                     if (result != null) {
                         mRecipes = result;
-                        mBinding.recipesRecyclerView.setAdapter(new RecipesAdapter(getActivity().getApplicationContext(), mRecipes, new Listeners.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(int position) {
-                                mListener.onRecipeSelected(mRecipes.get(position));
-                            }
-                        }));
+                        mBinding.recipesRecyclerView.setAdapter(
+                                new RecipesAdapter(getActivity().getApplicationContext(), mRecipes, position -> mListener.onRecipeSelected(mRecipes.get(position))));
                         // Set the default recipe for the widget
                         if (Prefs.loadRecipe(getActivity().getApplicationContext()) == null) {
                             AppWidgetService.updateWidget(getActivity(), mRecipes.get(0));

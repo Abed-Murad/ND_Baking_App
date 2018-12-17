@@ -1,13 +1,19 @@
 package com.am.nd_baking_app.util;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.media.MediaMetadataRetriever;
 import android.net.ConnectivityManager;
-import com.google.android.material.snackbar.Snackbar;
-import androidx.core.content.ContextCompat;
+import android.os.Build;
 import android.view.View;
 import android.widget.TextView;
 
 import com.am.nd_baking_app.R;
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.HashMap;
+
+import androidx.core.content.ContextCompat;
 
 public class FUNC {
     public static boolean isNetworkAvailable(Context context) {
@@ -24,4 +30,29 @@ public class FUNC {
         textView.setMaxLines(3);
         snackbar.show();
     }
+
+
+    public static Bitmap retriveVideoFrameFromVideo(String videoPath) throws Throwable {
+        Bitmap bitmap = null;
+        MediaMetadataRetriever mediaMetadataRetriever = null;
+        try {
+            mediaMetadataRetriever = new MediaMetadataRetriever();
+            if (Build.VERSION.SDK_INT >= 14)
+                mediaMetadataRetriever.setDataSource(videoPath, new HashMap<String, String>());
+            else
+                mediaMetadataRetriever.setDataSource(videoPath);
+            //   mediaMetadataRetriever.setDataSource(videoPath);
+            bitmap = mediaMetadataRetriever.getFrameAtTime();
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new Throwable("Exception in retriveVideoFrameFromVideo(String videoPath)" + e.getMessage());
+
+        } finally {
+            if (mediaMetadataRetriever != null) {
+                mediaMetadataRetriever.release();
+            }
+        }
+        return bitmap;
+    }
+
 }
