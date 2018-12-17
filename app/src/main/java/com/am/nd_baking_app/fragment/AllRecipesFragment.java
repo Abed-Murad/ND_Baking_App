@@ -73,12 +73,7 @@ public class AllRecipesFragment extends Fragment {
         // Inflate the layout for this fragment bind view to butter knife
         mBinding = FragmentAllRecipesBinding.inflate(inflater ,container, false);
         mNoDataBinding = mBinding.noDataIncludeContainer;
-        mBinding.swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                loadRecipes();
-            }
-        });
+        mBinding.swipeRefreshLayout.setOnRefreshListener(this::loadRecipes);
 
         mNoDataBinding.noDataContainer.setVisibility(View.VISIBLE);
         setupRecyclerView();

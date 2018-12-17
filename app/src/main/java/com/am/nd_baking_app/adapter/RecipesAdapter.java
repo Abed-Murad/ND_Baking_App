@@ -67,6 +67,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
             this.mBinding = binding;
         }
 
+        @SuppressLint("SetTextI18n")
         private void bind(Recipe recipe) {
             String recipeImage = recipe.getImage();
             if (!recipeImage.isEmpty()) {
@@ -79,7 +80,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
             }
 
             mBinding.recipeNameTextView.setText(recipe.getName());
-            mBinding.servingsTextView.setText(mContext.getString(R.string.servings, recipe.getServings()));
+            mBinding.servingsTextView.setText(recipe.getServings() + "");
 
             mBinding.getRoot().setOnClickListener(v -> {
                 if (mOnItemClickListener != null)

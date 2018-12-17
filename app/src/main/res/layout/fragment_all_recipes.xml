@@ -19,6 +19,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recipesRecyclerView"
                 android:layout_width="match_parent"
+                android:scrollbars="vertical"
                 android:layout_height="match_parent"
                 tools:listitem="@layout/item_recipe" />
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
