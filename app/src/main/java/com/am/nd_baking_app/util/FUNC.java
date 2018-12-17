@@ -2,8 +2,8 @@ package com.am.nd_baking_app.util;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
-import android.support.design.widget.Snackbar;
-import android.support.v4.content.ContextCompat;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.core.content.ContextCompat;
 import android.view.View;
 import android.widget.TextView;
 
@@ -20,7 +20,7 @@ public class FUNC {
         snackbar = Snackbar.make(view, text, Snackbar.LENGTH_LONG);
         View snackBarView = snackbar.getView();
         snackBarView.setBackgroundColor(ContextCompat.getColor(context, error ? R.color.colorError : R.color.colorInfo));
-        TextView textView = snackBarView.findViewById(android.support.design.R.id.snackbar_text); //Get reference of snackbar textview
+        TextView textView = snackBarView.findViewById(com.google.android.material.R.id.snackbar_text); //Get reference of snackbar textview
         textView.setMaxLines(3);
         snackbar.show();
     }

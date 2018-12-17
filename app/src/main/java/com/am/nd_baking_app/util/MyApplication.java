@@ -1,10 +1,10 @@
 package com.am.nd_baking_app.util;
 
 import android.app.Application;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.test.espresso.IdlingResource;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.test.espresso.IdlingResource;
 
 import com.am.nd_baking_app.BuildConfig;
 import com.orhanobut.logger.AndroidLogAdapter;
