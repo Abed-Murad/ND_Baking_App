@@ -60,15 +60,12 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             viewHolder.mTvIngredients.setText(ingValue.toString());
         } else if (holder instanceof StepViewHolder) {
             StepViewHolder viewHolder = (StepViewHolder) holder;
-            viewHolder.mTvStepOrder.setText(String.valueOf(position - 1));
+            viewHolder.mTvStepOrder.setText(String.valueOf(position));
             viewHolder.mTvStepName.setText(mRecipe.getSteps().get(position - 1).getShortDescription());
 
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (mOnItemClickListener != null)
-                        mOnItemClickListener.onItemClick(position - 1);
-                }
+            holder.itemView.setOnClickListener(v -> {
+                if (mOnItemClickListener != null)
+                    mOnItemClickListener.onItemClick(position - 1);
             });
         }
     }
