@@ -1,7 +1,7 @@
 package com.am.nd_baking_app.network;
 
 import com.am.nd_baking_app.model.Recipe;
-import com.am.nd_baking_app.util.Constants;
+import com.am.nd_baking_app.util.CONST;
 import com.orhanobut.logger.Logger;
 
 import java.io.Serializable;
@@ -25,7 +25,7 @@ public class RecipesApiManager implements Serializable {
         }
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Constants.RECIPES_API_URL)
+                .baseUrl(CONST.RECIPES_API_URL)
                 .addConverterFactory(JacksonConverterFactory.create())
                 .build();
 

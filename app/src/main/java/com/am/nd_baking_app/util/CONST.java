@@ -16,6 +16,6 @@
 
 package com.am.nd_baking_app.util;
 
-public class Constants {
+public class CONST {
     public static final String RECIPES_API_URL = "https://d17h27t6h515a5.cloudfront.net/";
 }
