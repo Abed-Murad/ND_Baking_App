@@ -48,7 +48,7 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
         return mIngredientList.size();
     }
 
-    public Ingredient getItem(int position) {
+    private Ingredient getItem(int position) {
         return mIngredientList.get(position);
     }
 
