@@ -1,8 +1,10 @@
 package com.am.nd_baking_app.activity;
 
 import android.annotation.SuppressLint;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,7 +52,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             for (int i = 0; i < mRecipe.getIngredients().size(); i++) {
                 Ingredients ingredients = mRecipe.getIngredients().get(i);
                 int k = i + 1;
-                ingValue.append(String.format(Locale.getDefault(),  "- (%d %s) %s", ingredients.getQuantity(), ingredients.getMeasure(), ingredients.getIngredient()));
+                ingValue.append(String.format(Locale.getDefault(), "- (%d %s) %s", ingredients.getQuantity(), ingredients.getMeasure(), ingredients.getIngredient()));
                 if (i != mRecipe.getIngredients().size() - 1)
                     ingValue.append("\n");
             }
@@ -58,7 +60,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             viewHolder.mTvIngredients.setText(ingValue.toString());
         } else if (holder instanceof StepViewHolder) {
             StepViewHolder viewHolder = (StepViewHolder) holder;
-            viewHolder.mTvStepOrder.setText(String.valueOf(position - 1) + ".");
+            viewHolder.mTvStepOrder.setText(String.valueOf(position - 1));
             viewHolder.mTvStepName.setText(mRecipe.getSteps().get(position - 1).getShortDescription());
 
             holder.itemView.setOnClickListener(new View.OnClickListener() {
