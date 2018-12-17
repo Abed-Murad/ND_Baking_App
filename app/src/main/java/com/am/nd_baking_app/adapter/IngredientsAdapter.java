@@ -1,4 +1,4 @@
-package com.am.nd_baking_app.activity;
+package com.am.nd_baking_app.adapter;
 
 import android.view.ViewGroup;
 
