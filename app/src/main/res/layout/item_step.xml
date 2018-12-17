@@ -15,7 +15,7 @@
             xmlns:tools="http://schemas.android.com/tools"
 
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="100dp"
             android:background="?android:attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true">
@@ -29,30 +29,29 @@
                 android:id="@+id/step_order_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:textAppearance="?attr/textAppearanceListItem"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
                 android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/text_large"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:textSize="@dimen/text_extra_large"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 tools:text="5" />
 
             <TextView
                 android:id="@+id/step_name_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_width="310dp"
+                android:layout_height="68dp"
+
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
                 android:textAppearance="?attr/textAppearanceListItem"
-                android:textSize="@dimen/text_large"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/imageView"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/imageView"
-                app:layout_constraintVertical_bias="0.503"
+                android:textSize="@dimen/text_extra_large"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                app:layout_constraintEnd_toStartOf="@+id/step_order_text"
+                app:layout_constraintStart_toStartOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:text="Recipe Introduction" />
 
 
