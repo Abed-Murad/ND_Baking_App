@@ -10,4 +10,5 @@
     <color name="colorLightGrey">#F3FFBD</color>
     <color name="black_alpha_60">#EE000000</color>
     <color name="black_alpha_30">#33000000</color>
+    <color name="black_alpha_10">#10000000</color>
 </resources>
