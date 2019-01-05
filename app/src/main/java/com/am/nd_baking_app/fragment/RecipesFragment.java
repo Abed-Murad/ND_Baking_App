@@ -67,8 +67,7 @@ public class RecipesFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment bind view to butter knife
         mBinding = FragmentAllRecipesBinding.inflate(inflater ,container, false);
         mNoDataBinding = mBinding.noDataIncludeContainer;
@@ -86,7 +85,11 @@ public class RecipesFragment extends Fragment {
         if (savedInstanceState != null && savedInstanceState.containsKey(KEY_RECIPES)) {
             mRecipes = savedInstanceState.getParcelableArrayList(KEY_RECIPES);
 
-            mBinding.recipesRecyclerView.setAdapter(new RecipesAdapter(getActivity().getApplicationContext(), mRecipes, position -> mListener.onRecipeSelected(mRecipes.get(position))));
+            mBinding.recipesRecyclerView.setAdapter(new RecipesAdapter(
+                    getActivity().getApplicationContext(),
+                    mRecipes,
+                    position -> mListener.onRecipeSelected(mRecipes.get(position)))
+            );
             dataLoadedTakeCareLayout();
         }
         return mBinding.getRoot();
@@ -99,9 +102,11 @@ public class RecipesFragment extends Fragment {
 
         boolean twoPaneMode = getResources().getBoolean(R.bool.twoPaneMode);
         if (twoPaneMode) {
-            mBinding.recipesRecyclerView.setLayoutManager(new GridLayoutManager(getActivity().getApplicationContext(), 3));
+            mBinding.recipesRecyclerView.setLayoutManager(new GridLayoutManager(
+                    getActivity().getApplicationContext(), 3));
         } else {
-            mBinding.recipesRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+            mBinding.recipesRecyclerView.setLayoutManager(new LinearLayoutManager(
+                    getActivity().getApplicationContext()));
         }
 
         mBinding.recipesRecyclerView.addItemDecoration(new SpacingItemDecoration((int) getResources().getDimension(R.dimen.margin_medium)));
