@@ -56,7 +56,7 @@ public class RecipeActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // Show the Up button in the action bar and set recipes name as title.
+        // Show the Up button in the action mRecyclerViewbar and set recipes name as title.
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setTitle(mRecipe.getName());
