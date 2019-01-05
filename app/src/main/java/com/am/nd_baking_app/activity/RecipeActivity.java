@@ -94,12 +94,7 @@ public class RecipeActivity extends AppCompatActivity {
 
     private void setupRecyclerView() {
         mRecyclerView.addItemDecoration(new SpacingItemDecoration((int) getResources().getDimension(R.dimen.margin_medium)));
-        mRecyclerView.setAdapter(new StepsAdapter(mRecipe, new Listeners.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                showStep(position);
-            }
-        }));
+        mRecyclerView.setAdapter(new StepsAdapter(mRecipe.getSteps(), this::showStep));
     }
 
 
