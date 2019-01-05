@@ -96,7 +96,6 @@ public class RecipeActivity extends AppCompatActivity {
                         break;
                 }
             }
-
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
 
