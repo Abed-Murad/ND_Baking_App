@@ -2,16 +2,19 @@ package com.am.nd_baking_app.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
+
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.am.nd_baking_app.R;
+import com.am.nd_baking_app.adapter.IngredientsAdapter;
 import com.am.nd_baking_app.adapter.StepsAdapter;
 import com.am.nd_baking_app.fragment.StepFragment;
 import com.am.nd_baking_app.model.Recipe;
@@ -39,6 +42,9 @@ public class RecipeActivity extends AppCompatActivity {
     private boolean mTwoPane;
 
     private Recipe mRecipe;
+    private StepsAdapter mStepsAdapter;
+    private IngredientsAdapter mIngredientsAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,8 +84,31 @@ public class RecipeActivity extends AppCompatActivity {
             }
         }
         setupRecyclerView();
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                switch (tab.getPosition()) {
+                    case 0:
+                        mRecyclerView.setAdapter(mStepsAdapter);
+                        break;
+                    case 1:
+                        mRecyclerView.setAdapter(mIngredientsAdapter);
+                        break;
+                }
+            }
 
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
+
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
@@ -93,8 +122,11 @@ public class RecipeActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView() {
+        mStepsAdapter = new StepsAdapter( mRecipe.getSteps(), this::showStep);
+        mIngredientsAdapter = new IngredientsAdapter(this, mRecipe.getIngredients());
+
         mRecyclerView.addItemDecoration(new SpacingItemDecoration((int) getResources().getDimension(R.dimen.margin_medium)));
-        mRecyclerView.setAdapter(new StepsAdapter(mRecipe.getSteps(), this::showStep));
+        mRecyclerView.setAdapter(mStepsAdapter);
     }
 
 
