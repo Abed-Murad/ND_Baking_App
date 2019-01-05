@@ -86,12 +86,7 @@ public class RecipesFragment extends Fragment {
         if (savedInstanceState != null && savedInstanceState.containsKey(KEY_RECIPES)) {
             mRecipes = savedInstanceState.getParcelableArrayList(KEY_RECIPES);
 
-            mBinding.recipesRecyclerView.setAdapter(new RecipesAdapter(getActivity().getApplicationContext(), mRecipes, new Listeners.OnItemClickListener() {
-                @Override
-                public void onItemClick(int position) {
-                    mListener.onRecipeSelected(mRecipes.get(position));
-                }
-            }));
+            mBinding.recipesRecyclerView.setAdapter(new RecipesAdapter(getActivity().getApplicationContext(), mRecipes, position -> mListener.onRecipeSelected(mRecipes.get(position))));
             dataLoadedTakeCareLayout();
         }
         return mBinding.getRoot();
