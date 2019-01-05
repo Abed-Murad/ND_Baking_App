@@ -8,16 +8,16 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.am.nd_baking_app.R;
-import com.am.nd_baking_app.fragment.RecipeStepDetailFragment;
+import com.am.nd_baking_app.fragment.StepFragment;
 import com.am.nd_baking_app.model.Step;
 
 import java.util.List;
 
-public class StepsFragmentPagerAdapter extends FragmentPagerAdapter {
+public class StepsPagerAdapter extends FragmentPagerAdapter {
     private Context mContext;
     private List<Step> mSteps;
 
-    public StepsFragmentPagerAdapter(Context context, List<Step> steps, FragmentManager fm) {
+    public StepsPagerAdapter(Context context, List<Step> steps, FragmentManager fm) {
         super(fm);
         this.mContext = context;
         this.mSteps = steps;
@@ -26,8 +26,8 @@ public class StepsFragmentPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         Bundle arguments = new Bundle();
-        arguments.putParcelable(RecipeStepDetailFragment.KEY_STEP, mSteps.get(position));
-        RecipeStepDetailFragment fragment = new RecipeStepDetailFragment();
+        arguments.putParcelable(StepFragment.KEY_STEP, mSteps.get(position));
+        StepFragment fragment = new StepFragment();
         fragment.setArguments(arguments);
 
         return fragment;

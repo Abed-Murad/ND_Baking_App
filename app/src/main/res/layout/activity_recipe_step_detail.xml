@@ -8,7 +8,7 @@
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
         android:orientation="vertical"
-        tools:context="com.am.nd_baking_app.activity.RecipeStepDetailActivity"
+        tools:context="com.am.nd_baking_app.activity.StepActivity"
         tools:ignore="MergeRootFrame">
 
         <com.google.android.material.appbar.AppBarLayout

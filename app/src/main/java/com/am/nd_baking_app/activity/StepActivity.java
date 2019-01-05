@@ -9,7 +9,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 
 import com.am.nd_baking_app.R;
-import com.am.nd_baking_app.adapter.StepsFragmentPagerAdapter;
+import com.am.nd_baking_app.adapter.StepsPagerAdapter;
 import com.am.nd_baking_app.model.Recipe;
 import com.am.nd_baking_app.util.FUNC;
 import com.orhanobut.logger.Logger;
@@ -17,7 +17,7 @@ import com.orhanobut.logger.Logger;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class RecipeStepDetailActivity extends AppCompatActivity {
+public class StepActivity extends AppCompatActivity {
     @BindView(R.id.recipe_step_tab_layout)
     TabLayout mTlRecipeStep;
     @BindView(R.id.recipe_step_viewpager)
@@ -58,7 +58,7 @@ public class RecipeStepDetailActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        StepsFragmentPagerAdapter adapter = new StepsFragmentPagerAdapter(getApplicationContext(), mRecipe.getSteps(), getSupportFragmentManager());
+        StepsPagerAdapter adapter = new StepsPagerAdapter(getApplicationContext(), mRecipe.getSteps(), getSupportFragmentManager());
         mVpRecipeStep.setAdapter(adapter);
         mTlRecipeStep.setupWithViewPager(mVpRecipeStep);
         mVpRecipeStep.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {

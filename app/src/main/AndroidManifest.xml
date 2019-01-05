@@ -24,16 +24,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.RecipeInfoActivity"
+            android:name=".activity.RecipeActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.RecipeStepDetailActivity"
+            android:name=".activity.StepActivity"
             android:label="@string/title_recipe_step_detail"
-            android:parentActivityName=".activity.RecipeInfoActivity"
+            android:parentActivityName=".activity.RecipeActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.RecipeInfoActivity" />
+                android:value=".activity.RecipeActivity" />
         </activity>
 
 

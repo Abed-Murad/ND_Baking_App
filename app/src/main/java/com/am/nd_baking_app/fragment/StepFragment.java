@@ -34,7 +34,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class RecipeStepDetailFragment extends Fragment {
+public class StepFragment extends Fragment {
     public static final String KEY_STEP = "step_k";
     private static final String KEY_POSITION = "pos_k";
     private static final String KEY_READY_TO_PLAY = "play_when_ready_k";
@@ -55,7 +55,7 @@ public class RecipeStepDetailFragment extends Fragment {
     private long mCurrentPosition = 0;
     private boolean mPlayWhenReady = true;
 
-    public RecipeStepDetailFragment() {
+    public StepFragment() {
     }
 
     @Override

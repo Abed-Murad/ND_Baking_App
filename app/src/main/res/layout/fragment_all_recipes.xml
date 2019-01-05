@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="16dp"
-        tools:context="com.am.nd_baking_app.fragment.AllRecipesFragment">
+        tools:context="com.am.nd_baking_app.fragment.RecipesFragment">
 
         <include android:id="@+id/noDataIncludeContainer"
             layout="@layout/no_data_layout" />

@@ -9,7 +9,7 @@
 
         <fragment
             android:id="@+id/recipes_list_fragment"
-            android:name="com.am.nd_baking_app.fragment.AllRecipesFragment"
+            android:name="com.am.nd_baking_app.fragment.RecipesFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout="@layout/fragment_all_recipes" />

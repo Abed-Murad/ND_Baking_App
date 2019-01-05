@@ -12,7 +12,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.am.nd_baking_app.R;
-import com.am.nd_baking_app.fragment.RecipeStepDetailFragment;
+import com.am.nd_baking_app.adapter.RecipeAdapter;
+import com.am.nd_baking_app.fragment.StepFragment;
 import com.am.nd_baking_app.model.Recipe;
 import com.am.nd_baking_app.util.FUNC;
 import com.am.nd_baking_app.util.Listeners;
@@ -23,7 +24,7 @@ import com.orhanobut.logger.Logger;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class RecipeInfoActivity extends AppCompatActivity {
+public class RecipeActivity extends AppCompatActivity {
 
     public static final String RECIPE_KEY = "recipe_k";
 
@@ -103,16 +104,16 @@ public class RecipeInfoActivity extends AppCompatActivity {
     private void showStep(int position) {
         if (mTwoPane) {
             Bundle arguments = new Bundle();
-            arguments.putParcelable(RecipeStepDetailFragment.KEY_STEP, mRecipe.getSteps().get(position));
-            RecipeStepDetailFragment fragment = new RecipeStepDetailFragment();
+            arguments.putParcelable(StepFragment.KEY_STEP, mRecipe.getSteps().get(position));
+            StepFragment fragment = new StepFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.recipe_step_detail_container, fragment)
                     .commit();
         } else {
-            Intent intent = new Intent(this, RecipeStepDetailActivity.class);
-            intent.putExtra(RecipeStepDetailActivity.RECIPE_KEY, mRecipe);
-            intent.putExtra(RecipeStepDetailActivity.STEP_SELECTED_KEY, position);
+            Intent intent = new Intent(this, StepActivity.class);
+            intent.putExtra(StepActivity.RECIPE_KEY, mRecipe);
+            intent.putExtra(StepActivity.STEP_SELECTED_KEY, position);
             startActivity(intent);
         }
     }

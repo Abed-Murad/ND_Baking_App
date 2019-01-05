@@ -10,7 +10,7 @@
         android:divider="?android:attr/dividerHorizontal"
         android:orientation="horizontal"
         android:showDividers="middle"
-        tools:context=".activity.RecipeInfoActivity">
+        tools:context=".activity.RecipeActivity">
 
         <!--
         This layout is a two-pane layout for the RecipeSteps

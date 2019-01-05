@@ -37,7 +37,6 @@ import com.orhanobut.logger.Logger;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Unbinder;
 
 
 public class RecipesFragment extends Fragment {
