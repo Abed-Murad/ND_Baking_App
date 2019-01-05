@@ -3,6 +3,7 @@ package com.am.nd_baking_app.adapter;
 import android.annotation.SuppressLint;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -44,10 +45,7 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepViewHold
     public void onBindViewHolder(@NonNull StepViewHolder holder, final int position) {
         Step step = mStepList.get(position );
         holder.bind(step);
-        holder.itemView.setOnClickListener(v -> {
-            if (mOnItemClickListener != null)
-                mOnItemClickListener.onItemClick(position);
-        });
+
     }
 
 
@@ -63,18 +61,24 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepViewHold
     public class StepViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.step_order_text)
         public TextView mTvStepOrder;
-
         @BindView(R.id.step_name_text)
         public TextView mTvStepName;
-
+        @BindView(R.id.constraintLayout)
+        ConstraintLayout constraintLayout;
         public StepViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+
         }
 
         private void bind(Step step) {
             mTvStepOrder.setText(String.valueOf(getAdapterPosition()));
             mTvStepName.setText(step.getShortDescription());
+            constraintLayout.setOnClickListener(v -> {
+
+                if (mOnItemClickListener != null)
+                    mOnItemClickListener.onItemClick(getAdapterPosition());
+            });
         }
 
     }

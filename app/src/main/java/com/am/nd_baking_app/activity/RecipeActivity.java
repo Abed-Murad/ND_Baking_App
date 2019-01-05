@@ -121,7 +121,12 @@ public class RecipeActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView() {
-        mStepsAdapter = new StepsAdapter( mRecipe.getSteps(), this::showStep);
+        mStepsAdapter = new StepsAdapter(mRecipe.getSteps(), new Listeners.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                showStep(position);
+            }
+        });
         mIngredientsAdapter = new IngredientsAdapter(this, mRecipe.getIngredients());
 
         mRecyclerView.addItemDecoration(new SpacingItemDecoration((int) getResources().getDimension(R.dimen.margin_medium)));
@@ -130,6 +135,8 @@ public class RecipeActivity extends AppCompatActivity {
 
 
     private void showStep(int position) {
+
+
         if (mTwoPane) {
             Bundle arguments = new Bundle();
             arguments.putParcelable(StepFragment.KEY_STEP, mRecipe.getSteps().get(position));
