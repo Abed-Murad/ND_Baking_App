@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Baking App</string>
+    <string name="app_name">Baking Recipes</string>
     <string name="recipe_image">Recipe image</string>
     <string name="data_not_available">Recipes data not available.</string>
     <string name="failed_to_load_recipe">Failed to load recipe data</string>
