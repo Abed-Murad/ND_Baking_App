@@ -14,10 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.ViewHolder> {
-    private final Context mContext;
-    private final List<Ingredient> mIngredientList;
+    private  Context mContext;
+    private  List<Ingredient> mIngredientList;
     private ItemIngredientBinding mBinding;
-    private List<Ingredient> ingredientList;
     private LayoutInflater mInflater;
 
 

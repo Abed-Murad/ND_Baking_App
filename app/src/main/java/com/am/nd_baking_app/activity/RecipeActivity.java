@@ -12,13 +12,14 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.am.nd_baking_app.R;
-import com.am.nd_baking_app.adapter.RecipeAdapter;
+import com.am.nd_baking_app.adapter.StepsAdapter;
 import com.am.nd_baking_app.fragment.StepFragment;
 import com.am.nd_baking_app.model.Recipe;
 import com.am.nd_baking_app.util.FUNC;
 import com.am.nd_baking_app.util.Listeners;
 import com.am.nd_baking_app.util.SpacingItemDecoration;
 import com.am.nd_baking_app.widget.AppWidgetService;
+import com.google.android.material.tabs.TabLayout;
 import com.orhanobut.logger.Logger;
 
 import butterknife.BindView;
@@ -28,12 +29,13 @@ public class RecipeActivity extends AppCompatActivity {
 
     public static final String RECIPE_KEY = "recipe_k";
 
-    @BindView(R.id.recipe_step_list)
+    @BindView(R.id.steps_ingredients_recycler_view)
     RecyclerView mRecyclerView;
 
     @BindView(android.R.id.content)
     View mParentLayout;
-
+    @BindView(R.id.tabLayout)
+    TabLayout tabLayout;
     private boolean mTwoPane;
 
     private Recipe mRecipe;
@@ -75,8 +77,8 @@ public class RecipeActivity extends AppCompatActivity {
                 showStep(0);
             }
         }
-
         setupRecyclerView();
+
     }
     @Override
     public boolean onSupportNavigateUp() {
@@ -92,7 +94,7 @@ public class RecipeActivity extends AppCompatActivity {
 
     private void setupRecyclerView() {
         mRecyclerView.addItemDecoration(new SpacingItemDecoration((int) getResources().getDimension(R.dimen.margin_medium)));
-        mRecyclerView.setAdapter(new RecipeAdapter(mRecipe, new Listeners.OnItemClickListener() {
+        mRecyclerView.setAdapter(new StepsAdapter(mRecipe, new Listeners.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
                 showStep(position);
