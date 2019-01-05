@@ -11,7 +11,6 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,7 +26,6 @@ import com.am.nd_baking_app.model.Recipe;
 import com.am.nd_baking_app.network.RecipesApiCallback;
 import com.am.nd_baking_app.network.RecipesApiManager;
 import com.am.nd_baking_app.util.FUNC;
-import com.am.nd_baking_app.util.Listeners;
 import com.am.nd_baking_app.util.MyApplication;
 import com.am.nd_baking_app.util.Prefs;
 import com.am.nd_baking_app.util.SpacingItemDecoration;
@@ -90,7 +88,7 @@ public class RecipesFragment extends Fragment {
                     mRecipes,
                     position -> mListener.onRecipeSelected(mRecipes.get(position)))
             );
-            dataLoadedTakeCareLayout();
+            updateLayout();
         }
         return mBinding.getRoot();
     }
@@ -168,8 +166,12 @@ public class RecipesFragment extends Fragment {
                 public void onResponse(final List<Recipe> result) {
                     if (result != null) {
                         mRecipes = result;
-                        mBinding.recipesRecyclerView.setAdapter(
-                                new RecipesAdapter(getActivity().getApplicationContext(), mRecipes, position -> mListener.onRecipeSelected(mRecipes.get(position))));
+                        mBinding.recipesRecyclerView.setAdapter(new RecipesAdapter(
+                                getActivity().getApplicationContext(),
+                                mRecipes,
+                                position -> mListener.onRecipeSelected(mRecipes.get(position)))
+                        );
+
                         // Set the default recipe for the widget
                         if (Prefs.loadRecipe(getActivity().getApplicationContext()) == null) {
                             AppWidgetService.updateWidget(getActivity(), mRecipes.get(0));
@@ -180,13 +182,13 @@ public class RecipesFragment extends Fragment {
                         FUNC.makeSnackBar(getActivity(), getView(), getString(R.string.failed_to_load_data), true);
 
                     }
-                    dataLoadedTakeCareLayout();
+                    updateLayout();
 
                 }
 
                 @Override
                 public void onCancel() {
-                    dataLoadedTakeCareLayout();
+                    updateLayout();
                 }
 
             });
@@ -199,7 +201,7 @@ public class RecipesFragment extends Fragment {
     /**
      * Check if data is loaded and show/hide Recipes RecyclerView & NoDataContainer regarding the recipes data state
      */
-    private void dataLoadedTakeCareLayout() {
+    private void updateLayout() {
         boolean loaded = mRecipes != null && mRecipes.size() > 0;
         mBinding.swipeRefreshLayout.setRefreshing(false);
 

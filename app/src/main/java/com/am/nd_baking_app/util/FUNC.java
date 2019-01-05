@@ -55,4 +55,23 @@ public class FUNC {
         return bitmap;
     }
 
+
+    public static String getRecipeImage(int recipeId) {
+        switch (recipeId) {
+            case 1:
+                return "https://images-gmi-pmc.edge-generalmills.com/0d8ad1b2-0411-4b37-8cdf-9b7d0334d42a.jpg";
+            case 2:
+                return "https://images-gmi-pmc.edge-generalmills.com/c95a0455-70d0-4667-bc17-acfaf2894210.jpg";
+
+            case 3:
+                return "https://d2gk7xgygi98cy.cloudfront.net/14-3-large.jpg";
+
+            case 4:
+                return "https://assets.epicurious.com/photos/579f8ec93a12dd9d56024065/2:1/w_1260%2Ch_630/blueberry-cheesecake.jpg";
+
+
+        }
+        return null;
+    }
+
 }

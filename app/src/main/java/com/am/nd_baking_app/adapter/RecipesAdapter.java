@@ -83,10 +83,10 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
         @SuppressLint("SetTextI18n")
         private void bind(Recipe recipe) {
                 GlideApp.with(mContext)
-                        .load(recipe.getImage())
+                        .load(FUNC.getRecipeImage(recipe.getId()))
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                         .error(R.drawable.image_dessert)
-                        .placeholder(R.drawable.image_dessert)
+                        .placeholder(R.drawable.recipe_placeholder)
                         .into(mBinding.recipeImageView);
 
             mBinding.recipeNameTextView.setText(recipe.getName());
